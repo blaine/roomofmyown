@@ -1,0 +1,195 @@
+h1 {
+  margin: 5px;
+  font-family: sans-serif;
+  font-size: 90%;
+}
+
+#bookmarklets p {
+  font-family: sans-serif;
+  margin: 2px 5px;
+  border: 1px solid grey;
+  text-align: center;
+  font-size: 80%;
+}
+
+#bookmarklets p a {
+  text-decoration: none;
+}
+
+#about {
+  display: none;
+}
+
+/* CSS declarations go here */
+#collages, #objects {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+#collages {
+  width: 200px;
+  right: auto;
+  background: #eee;
+  border-right: 1px solid silver;
+}
+
+.collage {
+  width: 100%;
+  padding: 5px;
+}
+
+.collage.selected {
+  background-color: #bbb;
+}
+
+.collage .clone {
+  position: absolute;
+  right: 5px;
+  font-size: 60%;
+}
+
+#objects.public {
+  background-color: #111;
+  top: 125px;
+}
+
+#crits {
+  display: none
+}
+
+#objects.nothing {
+  display: none;
+}
+
+#objects.public #addobject {
+  display: none;
+}
+
+#critlist {
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  bottom: 100px;
+  padding-left: 8px;
+  padding-top: 5px;
+  display: block;
+  overflow: scroll;
+  height: 150px;
+}
+
+#crits.public {
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  bottom: 100px;
+  padding-left: 8px;
+  padding-top: 5px;
+  line-height: 120px;
+  display: block;
+}
+
+#crits.public textarea {
+  height: 80px;
+  width: 80%;
+}
+
+#crits h1 {
+  line-height: 1em;
+}
+
+#crits.public button {
+  height: 86px;
+  vertical-align: top;
+}
+
+#critlist {
+  display: none;
+}
+
+#objects {
+  left: 200px;
+  padding: 3px 5px;
+}
+
+.object {
+  float: left;
+  margin: 2px;
+  border: 1px solid grey;
+  padding: 5px;
+  height: 100px;
+  max-height: 100px;
+}
+
+.object.image {
+  line-height: 90px;
+  text-align: center;
+}
+
+.object.text {
+  float: left;
+  max-width: 200px;
+  font-style: italic;
+  font-size: 80%;
+}
+
+.object.text a {
+  text-decoration: none;
+}
+
+.object img.landscape {
+  width: 90px;
+  vertical-align: middle;
+}
+
+.object img.portrait {
+  height: 90px;
+}
+
+#toofull {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(150,100,100,0.2);
+  display: none;
+}
+
+#toofull div {
+  margin: 100px auto 0;
+  padding: 40px;
+  width: 50%;
+  background-color: rgba(0,0,0,0.95);
+  color: #eee;
+  font-size: 250%;
+  border-radius: 10px;
+}
+
+#toofull button {
+  color: #111;
+  font-size: 50%;
+  border-radius: 2px;
+}
+
+#selector {
+  display: none;
+  margin: 5% auto;
+  width: 300px;
+  height: 200px;
+  background: rgba(0,0,0,0.9);
+  color: #eee;
+  padding: 10px;
+}
+
+#addcollage {
+  padding: 5px;
+  font-family: sans-serif;
+}

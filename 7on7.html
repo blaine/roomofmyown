@@ -1,0 +1,141 @@
+<head>
+  <title>A Room of My Own</title>
+  <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/c/video.js"></script>
+</head>
+
+<body>
+
+  <div id="about">
+    <h1>About <em>A Room of My Own</em></h1>
+    <p><em>A Room of My Own</em> was created as a collaboration over 24 hours between artist <a href="http://www.shobak.org/">Naeem Hohaiemen</a> and technologist <a href="http://romeda.org/">Blaine Cook</a> as part of Rhizome's <a href="http://rhizome.org/sevenonseven/">Seven on Seven</a> conference in April 2012.</p>
+
+    <p>Intended as a tool for artists and thinkers, Room of My Own is an incitement to <em>slow down and smell the links</em> in the face of an ever-accelerating information environment. Once Rhizome have posted video of the event, we'll include a link here.</p>
+
+    <p>To get started, drag the bookmarklets from the sidebar to your bookmarks bar to help you import content from around the web. When you visit a website with some text you'd like to save here, select the text you'd like to save and then click the text bookmarklet. For images, just click the images bookmarklet and then choose the image you'd like to save.</p>
+  </div>
+
+  <div id="collages">
+  {{> add_collage}}
+
+  {{> public_collages}}
+  {{> collages}}
+
+  <div id="bookmarklets">
+  <h1>Bookmarklets</h1>
+    <p><a href="javascript:(function(){(function(){var getSelText=function(){var s='';if(window.getSelection){s=window.getSelection();}else if(document.getSelection){s=document.getSelection();}else if(document.selection){s=document.selection.createRange().text;}return s;};var s=encodeURIComponent(getSelText().toString()),url=encodeURIComponent(window.location);window.open('http://roomofmyown.org/p?url='+url+'&text='+s);})();})();">room:text</a></p>
+
+    <p><a href="javascript:(function(){var z=document.createElement('div');z.setAttribute('style', 'position: absolute; top: 0; left: 0; right: 0; background-color: rgba(0,0,0,1);');var images=document.getElementsByTagName('img');for(var i=0;i<images.length;i++){var img = images[i].cloneNode();img.setAttribute('style', 'max-width: 150px; height: auto; max-height: 150px; margin: 5px;');img.onclick=function(){url=encodeURIComponent(this.src);window.open('http://roomofmyown.org/p?url='+url)};z.appendChild(img)}; n=document.body.childNodes; nl=n.length;while(nl--) { document.body.removeChild(n[nl])} document.body.appendChild(z);})();">room:images</a></p>
+  </div>
+
+  </div>
+
+  {{> crits}}
+
+  {{> objects}}
+
+  {{> selector}}
+
+  {{> toofull}}
+</body>
+
+<template name="add_collage">
+  <div id="addcollage">
+  <span><input id='cname' type="text" placeholder="new collage name" /></span>
+  <button id="addbtn">add</button>
+  </div>
+</template>
+
+<template name="public_collages">
+  <h1>Published Collages</h1>
+  {{#each collages}}
+    {{>collage}}
+  {{/each}}
+</template>
+
+<template name="toofull">
+<div id="toofull">
+  <div>
+    Sorry, this space is full. To add something else, try removing some cruft, or just ship your collage instead!
+  <button>OK, I'll do that.</button>
+  </div>
+
+</div>
+</template>
+
+<template name="collages">
+  <h1>Draft Collages</h1>
+  {{#each collages}}
+    {{> collage}}
+  {{/each}}
+</template>
+
+<template name="collage">
+  <div class="collage {{selected}}">
+    <span>{{ name }}</span>
+  </div>
+</template>
+
+<template name="objects">
+{{#if objects}}
+<div id="objects" class="{{klass}}">
+  {{#each objects}}
+    {{> object}}
+  {{/each}}
+
+  <div id="addobject">
+  <input id="objtext" type="text" placeholder="text" />
+  <input id="objurl" type="text" placeholder="new url" /> <button>add</button>
+  </div>
+</div>
+{{/if}}
+</template>
+
+<template name="crits">
+  <div id="crits" class="{{klass}}">
+  <h1>Critique It</h2>
+  <textarea id='crittext'></textarea>
+  <button id='sharecrit'>share</button>
+  <button id='viewcrit'>view</button>
+  </div>
+
+  {{#if crits}}  
+  <div id="critlist">
+  <ul>
+  {{#each crits}}
+    {{> crit}}
+  {{/each}}
+  </ul>
+  </div>
+  {{/if}}
+</template>
+
+
+<template name="crit">
+  <li>{{text}}</li>
+</template>
+
+<template name="object">
+  <div class="object {{type}}">
+    {{#if isType "text"}}<a href="{{url}}">{{text}}</a>{{/if}}
+    {{#if isType "video"}}
+      <video class="video-js vjs-default-skin" controls preload="auto" width="75" height="75" data-setup="{}">
+        <source src="{{video}}" type="video/mp4"/>
+      </video>
+    {{/if}}
+    {{#if isType "image"}}<img src="{{url}}" class="{{ orientation }}" />{{/if}}
+  </div>
+</template>
+
+<template name="selector">
+  <div id="selector">
+    <h1>Choose a Collage</h1>
+    {{#each collages}}
+      {{> collage_selector}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="collage_selector">
+  <div>{{name}}</div>
+</template>
