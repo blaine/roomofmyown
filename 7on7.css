@@ -16,8 +16,47 @@ h1 {
   text-decoration: none;
 }
 
+#mask {
+  display: none;
+  z-index: 999;
+  background: rgba(0,0,0,0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 #about {
   display: none;
+  position: absolute;
+  top: 10%;
+  width: 40em;
+  left: 50%;
+  margin-left: -20em;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid black;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+#about #closeabout {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  height: 1em;
+  width: 1em;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+  font-family: sans-serif;
+  line-height: 1em;
+}
+
+#about a#closeabout {
+  text-decoration: none;
+  color: #000;
 }
 
 /* CSS declarations go here */

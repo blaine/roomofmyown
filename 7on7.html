@@ -6,13 +6,18 @@
 
 <body>
 
+  <div id="mask">&nbsp;</div>
   <div id="about">
     <h1>About <em>A Room of My Own</em></h1>
-    <p><em>A Room of My Own</em> was created as a collaboration over 24 hours between artist <a href="http://www.shobak.org/">Naeem Hohaiemen</a> and technologist <a href="http://romeda.org/">Blaine Cook</a> as part of Rhizome's <a href="http://rhizome.org/sevenonseven/">Seven on Seven</a> conference in April 2012.</p>
+    <p><em>A Room of My Own</em> was created as a collaboration over 24 hours between artist <a href="http://www.shobak.org/">Naeem Mohaiemen</a> and technologist <a href="http://romeda.org/">Blaine Cook</a> as part of Rhizome's <a href="http://rhizome.org/sevenonseven/">Seven on Seven</a> conference in April 2012.</p>
 
-    <p>Intended as a tool for artists and thinkers, Room of My Own is an incitement to <em>slow down and smell the links</em> in the face of an ever-accelerating information environment. Once Rhizome have posted video of the event, we'll include a link here.</p>
+    <p>Intended as a tool for artists and thinkers, Room of My Own is an incitement to <em>slow down and smell the links</em> in the face of an ever-accelerating information environment.</p>
+    
+    <p><iframe src="http://player.vimeo.com/video/40569027" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p>
 
     <p>To get started, drag the bookmarklets from the sidebar to your bookmarks bar to help you import content from around the web. When you visit a website with some text you'd like to save here, select the text you'd like to save and then click the text bookmarklet. For images, just click the images bookmarklet and then choose the image you'd like to save.</p>
+
+    <a href="javascript:$('#about').hide();$('#mask').hide();" id="closeabout">x</a>
   </div>
 
   <div id="collages">
@@ -27,6 +32,8 @@
 
     <p><a href="javascript:(function(){var z=document.createElement('div');z.setAttribute('style', 'position: absolute; top: 0; left: 0; right: 0; background-color: rgba(0,0,0,1);');var images=document.getElementsByTagName('img');for(var i=0;i<images.length;i++){var img = images[i].cloneNode();img.setAttribute('style', 'max-width: 150px; height: auto; max-height: 150px; margin: 5px;');img.onclick=function(){url=encodeURIComponent(this.src);window.open('http://roomofmyown.org/p?url='+url)};z.appendChild(img)}; n=document.body.childNodes; nl=n.length;while(nl--) { document.body.removeChild(n[nl])} document.body.appendChild(z);})();">room:images</a></p>
   </div>
+
+  <p><a href="/about">About <em>Room of My Own</em></a></p>
 
   </div>
 
@@ -83,7 +90,7 @@
     {{> object}}
   {{/each}}
 
-  <div id="addobject">
+  <div id="addobject" class="object">
   <input id="objtext" type="text" placeholder="text" />
   <input id="objurl" type="text" placeholder="new url" /> <button>add</button>
   </div>

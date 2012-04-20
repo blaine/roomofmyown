@@ -193,6 +193,7 @@ if (Meteor.is_client) {
 
   var CollageRouter = Backbone.Router.extend({
     routes: {
+      "about": "about",
       "p?*args": "newquote",
       ":collage_id": "main"
     },
@@ -219,9 +220,15 @@ if (Meteor.is_client) {
       $("#selector").show();
     },
 
+    about: function () {
+      $("#about").show();
+      $("#mask").show();
+    },
+
     setCollage: function (collage_id) {
       this.navigate(collage_id, true);
     }
+
   });
   
   Router = new CollageRouter;
